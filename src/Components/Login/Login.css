@@ -11,14 +11,14 @@
     flex-direction: row;
 }
 
-.login-card {
+.login-container .login-card {
     display: flex;
     justify-content: space-evenly;
     background: white;
     align-items: left;
     flex-direction: column;
     border-radius: 25px;
-    width: 30%;
+    width: 25%;
     min-height: 340px;
     box-shadow: 0 0px 20px rgba(0,0,0,0.4);
     font-size: 1.2rem;
@@ -26,24 +26,29 @@
     margin-bottom: 2%;
     text-align: left;
     font-family: 'Hahmlet', serif;
-    background: linear-gradient(45deg,lightgray 7%,white 7%, white 93%, lightgray 93%);
+    background: linear-gradient(45deg,black 7%,white 7%, white 93%, black 93%);
 }
 
-.login-card label { 
+.login-container .login-card label { 
     cursor: pointer; 
-    display: inline-block; 
+    display: block; 
     padding: 3px 10px;
     margin: 8px 0; 
-    width: 30%; 
-    font-size: 1rem;
+    width: 50%; 
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 900;
 }
 
-.login-card input {
+.login-container .login-card input[type="text"], .login-card input[type="password"] {
+    display: block; 
     font-size: 0.96rem; 
     border: 1px solid #ccc;
-    padding: 3px 6px; 
+    padding: 8px 16px; 
     margin: 8px 0;
+    width: 90%;
     border-radius: 5px;
+    background: whitesmoke;
 }
 
 .button-wrap {
@@ -52,22 +57,22 @@
     flex-wrap: wrap;
 }
 
-.login-card input[type="submit"]{
+.login-container .login-card input[type="submit"]{
     margin-top: 40px;
     border: none; 
-    background: #237215; 
-    color: white;
+    background: rgb(255, 168, 128); 
+    color: black;
     cursor: pointer; 
     font-size: 0.96rem;
     font-weight: bold;
     outline: none;
-    padding: 2% 4%;
+    padding: 12px 25px;
     border-radius: 24px;
     transition: 0.25s;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.login-card input[type="reset"]{
+.login-container .login-card input[type="reset"]{
     margin-top: 40px;
     border: none; 
     background: brown;
@@ -76,7 +81,7 @@
     font-size: 0.96rem;
     font-weight: bold;
     outline: none;
-    padding: 2% 4%;
+    padding: 12px 25px;
     border-radius: 24px;
     transition: 0.25s;
     font-family: Arial, Helvetica, sans-serif;

@@ -114,11 +114,10 @@ app.get('/user', (req, res) => {
   }
 });
 
-app.get('/search', (req, res) => {
-  // const rawCookies = req.headers.cookie.split('; ');
-  console.log(req.cookies)
-  res.send(req.cookies);
-})
+app.get('/logout', (req, res) => {
+  res.clearCookie('session');
+  res.send("cookie deleted");
+});
 
 app.post('/login', (req, res) => {
   const {username, password} = req.body;
@@ -171,10 +170,6 @@ app.post('/transfer', (req, res) => {
   }
   res.status(200).json({ user: updatedUser, success: true });
 });
-
-
-
-
 
 const port = process.env.PORT || '8001';
 app.listen(port);

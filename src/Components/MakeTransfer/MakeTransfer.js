@@ -94,31 +94,30 @@ const MakeTransfer = ({setUser}) => {
 
     return( 
         <div className='login'>
-            <h1>Sign In</h1>
-            <div className='login-container'>
+            <h1>Transfer Money</h1>
+            <div className='mk-container'>
                 <form className='login-card' name= "trform" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="uname">To:</label>
+                        <label htmlFor="uname">To</label>
                         <input type= "text" id="uname" name="uname" value={to}
                         onChange={onChangeFactory(setTo)} />
                     </div>
                     <div>
-                        <label htmlFor="dec">Description:</label>
+                        <label htmlFor="dec">Description</label>
                         <input type= "text" id="dec" name="dec" value={description}
                         onChange={onChangeFactory(setDescription)} />
                     </div>
 
                     <div>
-                        <label htmlFor="pwd">amount:</label>
-                        <input type= "number" id="pwd" name="pwd" value={amount} 
+                        <label htmlFor="amt">Amount</label>
+                        <input type= "number" id="amt" name="amt" value={amount} 
                         onChange={onChangeFactory(setAmount)} />
                         {/* onChange={handleChange}/> */}
                     </div>
 
                     <div className="button-wrap">
-                        <input type = "submit" value = "Submit" ></input>
+                        <input type = "submit" value = "Transfer" ></input>
                         {/* onClick= {handleSubmit}></input> */}
-                        <input type = "reset" value = "Reset"></input>
                     </div>
                 </form>   
             </div>

@@ -1,12 +1,39 @@
 .details_con {
-    display: flexbox;
+    display: grid;
+    grid-gap: 3px;
+}
+
+.details_con .det {
+    width: 80%;
+    margin-top: 4%;
+    margin: auto;
+}
+
+.content .trtable {
+    margin-top: 5%;
+}
+
+.details_con .make-trans {
+    margin-top: 5%;
+}
+
+.details_con .make-trans input[type="button"] {
+    margin-top: 40px;
+    border: none; 
+    background: rgb(73, 145, 137); 
+    color: white;
+    cursor: pointer; 
+    font-size: 0.96rem;
+    font-weight: bold;
+    outline: none;
+    padding: 1% 2%;
+    border-radius: 24px;
+    transition: 0.25s;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .content .trtable table { 
-    margin-top: 5%;
-    position: relative;
-    left:50%;
-    transform: translate(-50%);
+    margin: auto;
     width: 80%;
     font-size: 1.1rem;
     text-align: center;

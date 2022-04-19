@@ -11,7 +11,9 @@ const Login = ({setToken, fetchUser}) => {
         return e => {
           setter(e.target.value);
         };
-      };      
+      };     
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -54,6 +56,7 @@ const Login = ({setToken, fetchUser}) => {
             // handle error login failed
         } else {
             fetchUser();
+            navigate('/')
         }
       }
     // const navigate = useNavigate();
@@ -94,13 +97,13 @@ const Login = ({setToken, fetchUser}) => {
             <div className='login-container'>
                 <form className='login-card' name= "login-form" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="uname">Username:</label>
+                        <label htmlFor="uname">Username</label>
                         <input type= "text" id="uname" name="uname" value={username}
                         onChange={onChangeFactory(setUsername)} />
                     </div>
 
                     <div>
-                        <label htmlFor="pwd">Password:</label>
+                        <label htmlFor="pwd">Password</label>
                         <input type= "password" id="pwd" name="pwd" value={password} 
                         onChange={onChangeFactory(setPassword)} />
                         {/* onChange={handleChange}/> */}
