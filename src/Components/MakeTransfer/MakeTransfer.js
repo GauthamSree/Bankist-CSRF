@@ -6,7 +6,7 @@ import { useState } from 'react';
 // import db from '../../firebase-config'
 // import { ref, child, get } from "firebase/database";
 
-const MakeTransfer = ({setUser}) => {
+const MakeTransfer = ({setUser, csrfToken}) => {
     const onChangeFactory = setter => {
         return e => {
           setter(e.target.value);
@@ -29,7 +29,8 @@ const MakeTransfer = ({setUser}) => {
         return fetch('http://localhost:8001/transfer', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              "CSRF-Token": csrfToken,
             },
           credentials: 'include',
           body: JSON.stringify(credentials)

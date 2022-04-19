@@ -86,6 +86,7 @@
 
 const express = require('express');
 const cors = require('cors')
+var csrf = require('csurf')
 const cookieParser = require('cookie-parser');
 const db = require('./db');
 const app = express();
@@ -97,7 +98,9 @@ app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
   }))
+
 app.use(cookieParser());
+var csrfProtection = csrf({ cookie: true })
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -118,6 +121,10 @@ app.get('/search', (req, res) => {
   // const rawCookies = req.headers.cookie.split('; ');
   console.log(req.cookies)
   res.send(req.cookies);
+})
+
+app.get('/form', csrfProtection, (req, res) => {
+  res.send({csrfToken: req.csrfToken() })
 })
 
 app.post('/login', (req, res) => {
@@ -150,7 +157,7 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.post('/transfer', (req, res) => {
+app.post('/transfer', csrfProtection, (req, res) => {
   const { amount, description, to, date } = req.body;
   const floatAmount = parseFloat(amount);
 

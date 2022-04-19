@@ -8,13 +8,14 @@ import LandingPage from './Components/LandingPage/LandingPage';
 
 function App() {
   const[user, setUser] = useState({});
+  const [csrfToken, setCsrfToken] = useState('');
   const [signedIn, setSignedIn] = useState(false);
 
   const defaultRouting = () => {
     if (!signedIn) {
-      return <Login setToken={setSignedIn} fetchUser={fetchUser} />
+      return <Login setToken={setSignedIn} fetchUser={fetchUser} setCsrfToken={setCsrfToken} />
     } else {
-      return <LandingPage user={user} setSignedIn={setSignedIn} setUser={setUser} /> 
+      return <LandingPage user={user} setSignedIn={setSignedIn} setUser={setUser} csrfToken={csrfToken} /> 
     }
   }
 
@@ -47,7 +48,7 @@ function App() {
       {/* <Home /> */}
       <Routes>
         <Route path="/" element={ defaultRouting() }/>
-        <Route path="/login" exact element={<Login setToken={setSignedIn} fetchUser={fetchUser} />}/>
+        <Route path="/login" exact element={<Login setToken={setSignedIn} fetchUser={fetchUser} setCsrfToken={setCsrfToken} />}/>
         </Routes>
     </div>
   </Router>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import MakeTransfer from '../MakeTransfer/MakeTransfer'
 
-const LandingPage = ({ setSignedIn, user, setUser }) =>  {
+const LandingPage = ({ setSignedIn, user, setUser, csrfToken}) =>  {
     const navigate = useNavigate();
     const onLogOut = () => {
         setSignedIn(false);
@@ -47,7 +47,7 @@ const LandingPage = ({ setSignedIn, user, setUser }) =>  {
             </div>
             <div className='det'>
                 <h3>makeTransfer</h3>
-                <MakeTransfer setUser={setUser} />
+                <MakeTransfer setUser={setUser} csrfToken={csrfToken} />
             </div>
         </div>
     )
