@@ -117,11 +117,10 @@ app.get('/user', (req, res) => {
   }
 });
 
-app.get('/search', (req, res) => {
-  // const rawCookies = req.headers.cookie.split('; ');
-  console.log(req.cookies)
-  res.send(req.cookies);
-})
+app.get('/logout', (req, res) => {
+  res.clearCookie('session');
+  res.send("cookie deleted");
+});
 
 app.get('/form', csrfProtection, (req, res) => {
   res.send({csrfToken: req.csrfToken() })
@@ -178,10 +177,6 @@ app.post('/transfer', csrfProtection, (req, res) => {
   }
   res.status(200).json({ user: updatedUser, success: true });
 });
-
-
-
-
 
 const port = process.env.PORT || '8001';
 app.listen(port);

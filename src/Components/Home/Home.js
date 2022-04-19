@@ -1,22 +1,18 @@
 import './Home.css'
+import bank from './background.jpg'
 
-// import useForm from '../useForm'
-import { Link } from 'react-router-dom'
 
 const Home = () => {
 
     return (
         <div className='land-container'>
-        <div className='card'>
-            <p>If you are a New User ?</p>
-
-            <Link to="/signup" className="btn">Sign up</Link>
+            <div className='card'>
+                <p className='title'>The Bank <br />that does <br />it all.</p>
+            </div>
+            <div className='card'>
+                <img src={bank} alt="bank" height='500px'/>
+            </div>
         </div>
-        <div className='card'>
-            <p>If you are an Existing User ?</p>
-            <Link to="/login" className="btn">Login</Link>
-        </div>
-    </div>
     )
 }
 

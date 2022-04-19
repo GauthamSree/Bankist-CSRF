@@ -1,31 +1,29 @@
-// import { NavLink } from 'react-router-dom'
 import './LandingPage.css'
-import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import MakeTransfer from '../MakeTransfer/MakeTransfer'
 
-const LandingPage = ({ setSignedIn, user, setUser, csrfToken}) =>  {
+const LandingPage = ({user}) =>  {
     const navigate = useNavigate();
-    const onLogOut = () => {
-        setSignedIn(false);
-        navigate('/');
+
+    const onMakeTransfer = () => {
+        navigate('/maketransfer');
     }
 
     return( 
         <div className='details_con'>
             <div className='det'>
-                <h3>Hello</h3>
+                <h3>Hello, { user.username }</h3>
+                <p>Your Account balance is &#x20b9; { user.money } </p>
             </div>
             <div className='content'>
                 <div className='trtable'>
+                    <h2>Transactions</h2>
                     <table id='transaction'>
                         <thead>
                             <tr>
-                                <th>Amount</th>
+                                <th>Amount ( &#x20b9;)</th>
                                 <th>To</th>
                                 <th>Description</th>
-                                <th>Balance</th>
+                                <th>Balance (&#x20b9;)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,9 +43,8 @@ const LandingPage = ({ setSignedIn, user, setUser, csrfToken}) =>  {
                     </table>
                 </div>
             </div>
-            <div className='det'>
-                <h3>makeTransfer</h3>
-                <MakeTransfer setUser={setUser} csrfToken={csrfToken} />
+            <div className='make-trans'>
+                <input type="button" onClick={onMakeTransfer} value="Make transfer" />
             </div>
         </div>
     )

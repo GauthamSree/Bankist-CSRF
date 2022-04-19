@@ -19,7 +19,7 @@ header {
     /* background-color: #8A0303; */
     border-radius: 25px;
     /* box-shadow: 0 0px 20px rgba(22, 42, 107, 0.4); */
-    width: 85%;
+    width: 88%;
     height: auto;
     padding: 12px 5%;
 }
@@ -33,7 +33,7 @@ header {
 }
 
 .header_title {
-    color: black;
+    color: #0090FF;
     font-family: inherit;
     font-size: 2rem;
     display: block;
@@ -60,4 +60,29 @@ header {
 }
 .nav_links li a:hover {
     color: lightgray;
+}
+
+.nav_links li .nav {
+    color: white;
+    background-color: #0090FF;
+    padding: 12px 25px;
+    border-radius: 25px;
+}
+
+.nav_links li .signout {
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+}
+
+
+.nav_links li .signout:hover {
+    color: white;
+    background-color: rgb(4, 6, 5);
+    /* background-color: #0090FF; */
+    padding: 12px 25px;
+    border-radius: 25px;
 }

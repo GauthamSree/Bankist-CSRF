@@ -4,46 +4,52 @@
     margin-top: 3%;
 }
 
-.login-container {
+.mk-container {
     display: flex;
     margin-top: 3%;
     justify-content: space-evenly;
     flex-direction: row;
 }
 
-.login-card {
+.mk-container .login-card {
     display: flex;
     justify-content: space-evenly;
-    background: white;
+    background: rgb(189, 212, 200);
     align-items: left;
     flex-direction: column;
     border-radius: 25px;
     width: 30%;
     min-height: 340px;
-    box-shadow: 0 0px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
     font-size: 1.2rem;
     padding: 2.5%;
     margin-bottom: 2%;
     text-align: left;
     font-family: 'Hahmlet', serif;
-    background: linear-gradient(45deg,lightgray 7%,white 7%, white 93%, lightgray 93%);
 }
 
-.login-card label { 
+.mk-container .login-card label { 
     cursor: pointer; 
-    display: inline-block; 
-    padding: 3px 10px;
+    display: block; 
+    padding: 8px 16px; 
     margin: 8px 0; 
-    width: 30%; 
+    width: 60%; 
     font-size: 1rem;
 }
 
-.login-card input {
+.mk-container .login-card input[type="text"], .mk-container .login-card input[type="number"]{
     font-size: 0.96rem; 
-    border: 1px solid #ccc;
-    padding: 3px 6px; 
+    display: block; 
+    border: 1px solid rgb(223, 234, 227);
+    padding: 8px 16px; 
     margin: 8px 0;
+    width: 85%;
     border-radius: 5px;
+    background-color: rgb(211, 227, 216);
 }
 
 .button-wrap {
@@ -52,33 +58,19 @@
     flex-wrap: wrap;
 }
 
-.login-card input[type="submit"]{
+.mk-container .login-card input[type="submit"]{
     margin-top: 40px;
     border: none; 
-    background: #237215; 
+    background: rgb(6, 3, 5); 
     color: white;
     cursor: pointer; 
-    font-size: 0.96rem;
+    font-size: 1rem;
     font-weight: bold;
     outline: none;
-    padding: 2% 4%;
+    padding: 12px 25px;
     border-radius: 24px;
     transition: 0.25s;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.login-card input[type="reset"]{
-    margin-top: 40px;
-    border: none; 
-    background: brown;
-    color: white;
-    cursor: pointer; 
-    font-size: 0.96rem;
-    font-weight: bold;
-    outline: none;
-    padding: 2% 4%;
-    border-radius: 24px;
-    transition: 0.25s;
+    width: 45%;
     font-family: Arial, Helvetica, sans-serif;
 }
 

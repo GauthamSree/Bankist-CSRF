@@ -15,7 +15,8 @@ function handleLogin(username, password) {
   users[username] = {
     username,
     money: 20000,
-    transfers: [{ amount:100, description:"Hello", to:"Hh", balance:19000}],
+    transfers: [],
+    // transfers: [{ amount:100, description:"Hello", to:"Hh", balance:19000}],
   };
   sessions[sessionID] = username;
 

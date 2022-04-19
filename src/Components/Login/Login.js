@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 // import db from '../../firebase-config'
 // import { ref, child, get } from "firebase/database";
 
-const Login = ({setToken, fetchUser, setCsrfToken}) => {
+const Login = ({fetchUser, setCsrfToken}) => {
     const onChangeFactory = setter => {
         return e => {
           setter(e.target.value);
         };
-      };      
+      };     
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -55,6 +57,7 @@ const Login = ({setToken, fetchUser, setCsrfToken}) => {
             // handle error login failed
         } else {
             fetchUser();
+            navigate('/')
         }
       }
     
@@ -117,13 +120,13 @@ const Login = ({setToken, fetchUser, setCsrfToken}) => {
             <div className='login-container'>
                 <form className='login-card' name= "login-form" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="uname">Username:</label>
+                        <label htmlFor="uname">Username</label>
                         <input type= "text" id="uname" name="uname" value={username}
                         onChange={onChangeFactory(setUsername)} />
                     </div>
 
                     <div>
-                        <label htmlFor="pwd">Password:</label>
+                        <label htmlFor="pwd">Password</label>
                         <input type= "password" id="pwd" name="pwd" value={password} 
                         onChange={onChangeFactory(setPassword)} />
                         {/* onChange={handleChange}/> */}
