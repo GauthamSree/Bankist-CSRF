@@ -48,8 +48,8 @@ function App() {
       <Navbar setSignedIn={setSignedIn} signedIn={signedIn} setUser={setUser} />
       <Routes>
         <Route path="/" element={ defaultRouting() }/>
-        <Route path="/login" exact element={<Login fetchUser={fetchUser} setCsrfToken={setCsrfToken} />}/>
-        <Route path="/maketransfer" exact element={<MakeTransfer setUser={setUser} csrfToken={csrfToken} />}/>
+        <Route path="/login" exact element={<Login fetchUser={fetchUser} />}/>
+        <Route path="/maketransfer" exact element={<MakeTransfer setUser={setUser} csrfToken={csrfToken} setCsrfToken={setCsrfToken} />}/>
         </Routes>
     </div>
   </Router>

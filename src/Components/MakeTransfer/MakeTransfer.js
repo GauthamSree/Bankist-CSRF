@@ -1,12 +1,8 @@
 import './MakeTransfer.css'
 import {useNavigate} from 'react-router-dom'
-import { useState } from 'react';
-// import useForm from '../useForm';
+import { useState, useEffect } from 'react';
 
-// import db from '../../firebase-config'
-// import { ref, child, get } from "firebase/database";
-
-const MakeTransfer = ({setUser, csrfToken}) => {
+const MakeTransfer = ({setUser, csrfToken, setCsrfToken}) => {
     const onChangeFactory = setter => {
         return e => {
           setter(e.target.value);
@@ -16,8 +12,9 @@ const MakeTransfer = ({setUser, csrfToken}) => {
     const [amount, setAmount] = useState('');
     const [description, setDescription] = useState('');
     const [to, setTo] = useState('');
+    const navigate = useNavigate();
 
-    async function loginUser(credentials) {
+    async function transferMoney(credentials) {
         console.log(credentials);
         const handleError = response => {
             if (!response.ok) { 
@@ -46,21 +43,40 @@ const MakeTransfer = ({setUser, csrfToken}) => {
     }
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await loginUser({
+        const res = await transferMoney({
             amount,
             to,
             description,
         });
-        console.log("eres", res);
         if (res?.user == null) {
             console.log(res);
             // handle error login failed
         } else {
             setUser(res?.user);
-            console.log(res);
-            // fetchUser();
+            navigate('/')
         }
       }
+
+      const fetchCsrf = () => {
+        fetch('http://localhost:8001/form', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          mode: 'cors',
+        })
+        .then(data => data.json())
+        .then(data => {
+          if (data) {
+            // console.log(data);
+            setCsrfToken(data.csrfToken);
+          }
+        });
+      }      
+      useEffect(() => {
+        fetchCsrf();
+        });
     // const navigate = useNavigate();
     // const onSubmit = (data) => {
     //     const dbRef = ref(db);

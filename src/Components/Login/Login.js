@@ -1,12 +1,12 @@
 import './Login.css'
 import {useNavigate} from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // import useForm from '../useForm';
 
 // import db from '../../firebase-config'
 // import { ref, child, get } from "firebase/database";
 
-const Login = ({fetchUser, setCsrfToken}) => {
+const Login = ({fetchUser}) => {
     const onChangeFactory = setter => {
         return e => {
           setter(e.target.value);
@@ -60,27 +60,6 @@ const Login = ({fetchUser, setCsrfToken}) => {
             navigate('/')
         }
       }
-    
-      const fetchCsrf = () => {
-        fetch('http://localhost:8001/form', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include',
-          mode: 'cors',
-        })
-        .then(data => data.json())
-        .then(data => {
-          if (data) {
-            // console.log(data);
-            setCsrfToken(data.csrfToken);
-          }
-        });
-      }      
-      useEffect(() => {
-        fetchCsrf();
-        });
     
     // const navigate = useNavigate();
     // const onSubmit = (data) => {
