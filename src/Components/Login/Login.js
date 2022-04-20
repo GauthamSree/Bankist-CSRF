@@ -6,7 +6,7 @@ import { useState } from 'react';
 // import db from '../../firebase-config'
 // import { ref, child, get } from "firebase/database";
 
-const Login = ({setToken, fetchUser}) => {
+const Login = ({fetchUser}) => {
     const onChangeFactory = setter => {
         return e => {
           setter(e.target.value);

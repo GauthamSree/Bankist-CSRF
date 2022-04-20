@@ -1,10 +1,6 @@
 import './MakeTransfer.css'
 import {useNavigate} from 'react-router-dom'
 import { useState } from 'react';
-// import useForm from '../useForm';
-
-// import db from '../../firebase-config'
-// import { ref, child, get } from "firebase/database";
 
 const MakeTransfer = ({setUser}) => {
     const onChangeFactory = setter => {
@@ -16,8 +12,9 @@ const MakeTransfer = ({setUser}) => {
     const [amount, setAmount] = useState('');
     const [description, setDescription] = useState('');
     const [to, setTo] = useState('');
+    const navigate = useNavigate();
 
-    async function loginUser(credentials) {
+    async function transferMoney(credentials) {
         console.log(credentials);
         const handleError = response => {
             if (!response.ok) { 
@@ -45,19 +42,17 @@ const MakeTransfer = ({setUser}) => {
     }
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await loginUser({
+        const res = await transferMoney({
             amount,
             to,
             description,
         });
-        console.log("eres", res);
         if (res?.user == null) {
-            console.log(res);
+            console.log(res)
             // handle error login failed
         } else {
-            setUser(res?.user);
-            console.log(res);
-            // fetchUser();
+            setUser(res?.user)
+            navigate('/')
         }
       }
     // const navigate = useNavigate();
