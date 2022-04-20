@@ -132,6 +132,8 @@ app.post('/login', (req, res) => {
   // console.log(sessionID);
   res.cookie('session', sessionID, {
       maxAge: ONE_HOUR_MS,
+      sameSite: 'Strict',
+      httpOnly: true,
     });
   
   res.send({
