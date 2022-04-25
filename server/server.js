@@ -132,7 +132,7 @@ app.post('/login', (req, res) => {
   // console.log(sessionID);
   res.cookie('session', sessionID, {
       maxAge: ONE_HOUR_MS,
-      sameSite: 'Strict',
+      sameSite: 'None',
       httpOnly: true,
     });
   
@@ -159,7 +159,7 @@ app.use((req, res, next) => {
 });
 
 app.post('/transfer', csrfProtection, (req, res) => {
-  const { amount, description, to, date } = req.body;
+  const { amount, description, to } = req.body;
   const floatAmount = parseFloat(amount);
 
   if (
